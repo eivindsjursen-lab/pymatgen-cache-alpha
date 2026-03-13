@@ -52,7 +52,7 @@ jobs:
       - name: Build opt-bin cache key string
         id: optbin_key
         run: |
-          KEY_STR="opt-bin|${{ runner.os }}|$(sha256sum .github/workflows/_install_opt_unit_deps.sh | cut -d ' ' -f1)"
+          KEY_STR="opt-bin|${{ runner.os }}|$(sha256sum .github/workflows/_install_opt_unit_deps.sh | cut -d ' ' -f1)|${{ github.sha }}"
           echo "key_str=$KEY_STR" >> "$GITHUB_OUTPUT"
 
       - name: Compute opt-bin key fingerprint
